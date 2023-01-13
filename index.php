@@ -10,30 +10,34 @@ $ussd_body        = $_POST["ussd_body"];
 if ($ussd_body == "") {
     // This is the first request. Note how we start the response with CON
     $msg_type ="1";
-    $response  = "What would you want to check \n";
-    $response .= "1. My Account \n";
-    $response .= "2. My phone number";
+    $response  = "What would you want to do \n";
+    $response .= "1. Make Payment \n";
+    $response .= "2. Make Transfer";
 
 } else if ($ussd_body == "1") {
     // Business logic for first level response
     $msg_type ="1";
-    $response = "CON Choose account information you want to view \n";
-    $response .= "1. Account number \n";
+    $response = "Enter Amount To Send \n";
 
 } else if ($ussd_body == "2") {
     // Business logic for first level response
-    // This is a terminal request. Note how we start the response with END
-    $msg_type ="0";
-    $response = "END Your phone number is ".$phoneNumber;
+    // This is a terminal request. Note how we start the response with
+    $msg_type ="1";
+    $response = "Enter Amount To Transfer \n";
 
-} else if($ussd_body == "1*1") { 
+} else if($ussd_body == "1*+233548711633") { 
     // This is a second level response where the user selected 1 in the first instance
-    $accountNumber  = "ACC1001";
-
-    // This is a terminal request. Note how we start the response with END
+    // This is a terminal request. Note how we start the response with
     $msg_type ="0";
-    $response = "END Your account number is ".$accountNumber;
+    $response = "payment has been initialized";
 
+} else if($ussd_body == "2*+233548711633") {
+    // This is a second level response where the user selected 1 in the first instance
+    // This is a terminal request. Note how we start the response with
+    $msg_type ="0";
+    $response = "transfer has been initialized"; 
+    //call payment function here
+    
 }
 
 // Echo the response back to the API
