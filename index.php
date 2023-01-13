@@ -1,6 +1,6 @@
 <?php
 
-include_once 'utils.php';
+include_once 'util.php';
 
 // Read the variables sent via POST from our API
 $session_id   = $_POST["session_id"];
