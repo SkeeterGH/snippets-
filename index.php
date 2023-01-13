@@ -25,18 +25,21 @@ if ($ussd_body == "") {
     $msg_type ="1";
     $response = "Enter Amount To Transfer \n";
 
-} else if($ussd_body == "1*+233548711633") { 
+} else if($ussd_body == "1*10.00") { 
     // This is a second level response where the user selected 1 in the first instance
     // This is a terminal request. Note how we start the response with
     $msg_type ="0";
     $response = "payment has been initialized";
+     //call payment function here
 
-} else if($ussd_body == "2*+233548711633") {
+
+} else if($ussd_body == "2*10.00") {
     // This is a second level response where the user selected 1 in the first instance
     // This is a terminal request. Note how we start the response with
     $msg_type ="0";
     $response = "transfer has been initialized"; 
-    //call payment function here
+    //call transfer function here
+    //transfer();
     
 }
 
