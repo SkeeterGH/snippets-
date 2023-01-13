@@ -1,16 +1,20 @@
-class{
+class transactions{
 
-payment(){
+    payment(){
 
 
-}
-verify(){
+    }
+    payment_verify(){
 
-}
+    }
 
-trasfer(){
+    trasfer(){
 
-}
+    }
+    
+    trasfer_verify(){
+
+    }
 
 
 
