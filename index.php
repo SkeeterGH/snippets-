@@ -1,4 +1,7 @@
 <?php
+
+include_once 'utils.php';
+
 // Read the variables sent via POST from our API
 $session_id   = $_POST["session_id"];
 $service_code = $_POST["service_code"];
@@ -25,7 +28,7 @@ if ($ussd_body == "") {
     $msg_type ="1";
     $response = "Enter Amount To Transfer \n";
 
-} else if($ussd_body == "1*10.00") { 
+} else if($ussd_body == "1*10") { 
     // This is a second level response where the user selected 1 in the first instance
     // This is a terminal request. Note how we start the response with
     
@@ -43,7 +46,7 @@ if ($ussd_body == "") {
         $nw_code = 'tgo';
     }
     
-    $amount = $textArray[2];
+    $amount = "10.00";
 
     $msg_type ="0";
     $response = "payment has been initialized";
@@ -51,7 +54,7 @@ if ($ussd_body == "") {
     //payment($msisdn,$amount,$nw_code);
 
 
-} else if($ussd_body == "2*10.00") {
+} else if($ussd_body == "2*10") {
     // This is a second level response where the user selected 1 in the first instance
     // This is a terminal request. Note how we start the response with
     
@@ -69,7 +72,7 @@ if ($ussd_body == "") {
         $nw_code = 'tgo';
     }
     
-    $amount = $textArray[2];
+    $amount = "10.00";
     $msg_type ="0";
     $response = "transfer has been initialized"; 
     //call transfer function here
