@@ -81,5 +81,5 @@ if ($ussd_body == "") {
 }
 
 // Echo the response back to the API
-header('Content-type: text/plain');
+header('Content-type: application/json');
 echo $response;
